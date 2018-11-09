@@ -82,8 +82,7 @@
 </template>
 
 <script>
-import Panel from '@/components/Panel'
-import SognService from '@/services/SongsService'
+import SongsService from '@/services/SongsService'
 
 export default {
   data () {
@@ -102,9 +101,6 @@ export default {
       required: (value) => !!value || 'Required.'
     }
   },
-  components: {
-    Panel
-  },
   methods: {
     async create () {
       this.error = null
@@ -116,7 +112,6 @@ export default {
         this.error = 'Please fill in all the required fields.'
         return
       }
-
 
       try {
         await SongsService.post(this.song)
